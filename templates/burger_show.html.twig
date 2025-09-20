@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{nom}} - {% endblock %}
+
+{% block content %}
+
+{% if erreur is defined %}
+    <p>{{ erreur }}</p>
+
+{% else %}
+    <p>Le burger <b>{{nom}}</b> coûte {{prix}}€.</p>
+    <small>Il a pour id {{id}}.</small>
+{% endif %}
+
+{% endblock %}
+
+{# Vérifier que ça fonctionne #}
