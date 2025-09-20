@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUDcroustillant</title>
-</head>
-<body>
-    <h1>Bienvenue sur CRUDcroustillant !</h1>
-</body>
-</html>
+{% extends "base.html.twig" %}
+{% block title %}Accueil - {% endblock %}
+{% block content %}
+<h1>Bienvenue sur CRUDcroustillant !</h1>
+<img src="{{asset('images/251-2222x257.jpg')}}" style="width:90svw; margin:auto; display:flex" alt="image provenant de picsum.photos" />
+{% endblock %}
+
