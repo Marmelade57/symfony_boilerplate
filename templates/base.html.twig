@@ -13,10 +13,10 @@
         {% endblock %} #}
     </head>
     <body>
-        <nav>
-            <a href="{{ path('home')}}">Accueil</a>
-            <a href="{{ path('burgers')}}">Liste des burgeurs</a>
-        </nav>
+        {% include '_header.html.twig' %}
+
         {% block content %}{% endblock %}
+
+        {% include '_footer.html.twig' %}
     </body>
 </html>
