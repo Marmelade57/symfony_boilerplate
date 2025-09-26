@@ -1,3 +1,19 @@
 {% extends "base.html.twig" %}
 {% block title %}Liste des Burgers - {% endblock %}
-{% block content %}<h2>Liste des burgers : </h2>{% endblock %}
+{% block content %}
+
+<h2>Liste des burgers : </h2>
+
+{% if burgers is defined %}
+    {% if burgers is empty %}
+        <p class="error">Aucun burger n'a été trouvé</p>
+    {% else %}
+        <ul>
+            {% for burger in burgers %}
+                <li class="card-title">{{ burger.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endif %}
+
+{% endblock %}

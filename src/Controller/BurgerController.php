@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\BurgerRepository;
 use ErrorException;
 use LengthException;
 use OutOfRangeException;
@@ -11,11 +12,13 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class BurgerController extends AbstractController
 {
-    #[Route('/burgers', name: 'burgers')]
-    public function list(): Response
+    #[Route('/burgers', name: 'burger_index')]
+    public function index(BurgerRepository $burgerRepository): Response
     {
-
-        return $this->render('burgers_list.html.twig', []);
+        $burgers = $burgerRepository->findAll();
+        return $this->render('burgers_list.html.twig', [
+            "burgers" => $burgers,
+        ]);
     }
 
     #[Route('/burgers/{id}', name: 'un_burger')]
@@ -57,9 +60,5 @@ class BurgerController extends AbstractController
                 "prix" => $listeBurgeurs[$id][2]
             ]);
         }
-    }
-
-    public function findAllBurger(){
-        return $this->findAll();
     }
 }

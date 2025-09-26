@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello OignonController!{% endblock %}
+{% block title %}Liste des Burgers - {% endblock %}
+{% block content %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<h2>Liste des oignons : </h2>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% if oignons is defined %}
+    {% if oignons is empty %}
+        <p class="error">Aucun oignon n'a été trouvé</p>
+    {% else %}
+        <ul>
+            {% for oignon in oignons %}
+                <li class="card-title">{{ oignon.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endif %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/tchet/Desktop/3A/S5/Programmation Avancee/src/Controller/OignonController.php</code></li>
-        <li>Your template at <code>C:/Users/tchet/Desktop/3A/S5/Programmation Avancee/templates/oignon/index.html.twig</code></li>
-    </ul>
-</div>
 {% endblock %}

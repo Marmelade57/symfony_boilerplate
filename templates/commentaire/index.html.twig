@@ -1,20 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CommentaireController!{% endblock %}
+{% block title %}Liste des Commentaires - {% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/tchet/Desktop/3A/S5/Programmation Avancee/src/Controller/CommentaireController.php</code></li>
-        <li>Your template at <code>C:/Users/tchet/Desktop/3A/S5/Programmation Avancee/templates/commentaire/index.html.twig</code></li>
-    </ul>
-</div>
+{% block content %}
+<h2>Liste des commentaires : </h2>
+{% if commentaires is defined %}
+    {% if commentaires is empty %}
+        <p class="error">Aucun commentaire n'a été trouvé</p>
+    {% else %}
+        <ul>
+            {% for commentaire in commentaires %}
+                <li class="card-title">{{ commentaire.name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endif %}
 {% endblock %}
