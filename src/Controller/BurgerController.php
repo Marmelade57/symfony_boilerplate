@@ -22,7 +22,7 @@ class BurgerController extends AbstractController
     public function show(Int $id)
     {
         $listeBurgeurs = [
-            ["Bieber", "Steak haché maison,cheddar, ketchup et mayonnaise", 6], 
+            ["Bieber", "Steak haché maison, cheddar, ketchup et mayonnaise", 6], 
             ["Ray Charles", "Steak haché maison, cheddar, salade, tomate, cornichons, ketchup, mayonnaise", 7.9], 
             ["Céline Dion", "Steak haché maison, cheddar, emmental, oignons rouges pickles, cornichons, ketchup, moutarde", 7.9], 
             ["James Brown", "Steak haché maison, cheddar, bacon, oignons grillés, onion ring, barbecue et mayonnaise", 8.9], 
@@ -57,5 +57,9 @@ class BurgerController extends AbstractController
                 "prix" => $listeBurgeurs[$id][2]
             ]);
         }
+    }
+
+    public function findAllBurger(){
+        return $this->findAll();
     }
 }
